@@ -1,72 +1,105 @@
 @charset "utf-8";
-
-/* 초기값 */
-*{margin:0; padding:0;}
+ 
+* {margin:0; padding:0; box-sizing: border-box;}
 li {list-style: none;}
 a {
     text-decoration: none;
+    display: block;
     color: #333;
-    display:block;   
 }
+img, video, iframe {display: block;}
+
 html, body {
-    color: #333;
+    color: #333;  
+    font-family: 'ChosunGu';
+}
+ 
+/* 큰 타이틀 */
+h3 {
+    max-width: 1280px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
+    text-align: right; 
+    margin-bottom: 30px;
+    font-size: 45px; 
+}
+/* 컨텐츠 타이틀 */
+h4 {
+    font-size: 30px;
+    margin-top: 5px; 
+    letter-spacing: -1px;
 }
 
-/* header가 가지는 부분 */
-header { 
-    height: 80px;
-    line-height: 80px;
-    /* ▼ 메인비주얼 위에 헤더를 올리고싶다 */
-    position: absolute; 
-    width: 100%;           
-    top: 0;
-    left: 0;
-}
-header a {
-    color: #fff;
+
+/* header 헤더 *********************************************/
+header {
+    height: 120px;
+    line-height: 120px;
+    background: linear-gradient(90deg, rgba(255,251,213,1) 0%, rgba(178,10,44,1) 100%);
 }
 header div {
-    max-width: 1600px;
-    width: calc(100%-30px);
+    max-width: 1280px;
+    width: calc(100% - 20px);
     margin: 0 auto;
-    display: flex; 
+    display: flex;
     justify-content: space-between;
-}
-header div h1{
-    font-size: 20px;
-}
-
-/* 메인비주얼 영상 */
-.main_visual {
-    background-color:  #c46461;
-    padding: 120px 0 150px; /* 위, 좌우 , 아래 */
-}
-.main_visual div {
-    width: 510px;
-    height: 660px;
-    overflow: hidden; /* 해당 영역을 벗어나는 요소를 숨김처리해준다. 잘라내기 같은거. */
-    border-radius: 250px 250px 0 0;
-    margin: 0 auto;
-}
-.main_visual div video {
-    width: 100%;
+    position: relative;
     height: 100%;
-    object-fit: cover;
 }
-.main_visual p {
-    text-align: center;
+header div h1 img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+header div ul li a {
     color: #fff;
-    margin-top: 20px;
-    font-size: 22px;
-    letter-spacing: 3px; /* 글자 좌우 간격 */
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+} 
+
+
+/* main_visual 메인비주얼  ******************************/
+.main_visual { 
+    width: 100%;
+    height: 80vh;
+    z-index: 9;
+    position: relative;
+    background: linear-gradient(90deg, rgba(255,251,213,1) 0%, rgba(178,10,44,1) 100%);
+    color: #fff;
+    text-align: center;
+} 
+
+.main_visual .mv_t { 
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.main_visual .mv_t h1 { 
+    font-size: 80px;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 2px 2px 5px rgba(117, 22, 41, 0.384);
+}
+.main_visual .mv_t p { 
+    font-size: 50px;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, .8);
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 2px 2px 5px rgba(117, 22, 41, 0.384);
 }
 
-/************ 프로파일 **********/
-/*********** 개인정보 */
+
+/*  */
+
+/*********** 개인이력 작성 porfile*/
 .profile {
     max-width: 1024px;
     width: calc(100% - 30px);
-    margin: 150px auto;
+    margin: 150px auto 0;
     display: flex; 
     justify-content: space-between; 
 }
@@ -75,9 +108,10 @@ header div h1{
     text-align: center;
     font-size: 20px;
 }
-.profile figure {
-    border-radius: 40px;
+.profile figure { 
     overflow: hidden;
+    border-radius: 50px;
+    /* box-shadow: 3px 3px 5px rgba(99, 13, 13, 0.301); */
 }
 .profile figure img {
     width: 100%;
@@ -89,9 +123,9 @@ header div h1{
  
 .profile .about {
     width: 58%;
-    background-color: rgb(240, 240, 240);
-    height: 100%;
-    border-radius: 40px;
+    background: rgba(214, 214, 214, 0.322);
+    height: 100%; 
+    border-radius: 50px;
     padding: 50px;
     box-sizing: border-box;
 }
@@ -102,157 +136,182 @@ header div h1{
 .profile .about dl dt {
     font-weight: bold;
     font-size: 20px;
-    margin-bottom: 10px;
+    color: #b20a2c;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .profile .about dl dd {
-    margin-bottom: 7px;
+    margin-bottom: 15px;
 }
 
-/* 모션그래픽디자인 */
-.motion {
-    max-width: 1440px;
-    width: calc(100% - 30px);
-    margin: 150px auto;
+
+/***************************************** best video */
+.video {
+    
+    padding: 150px 0;
 }
-.motion .motion_in {
-    margin-bottom: 150px; /* 섹션 위에꺼랑 밑에꺼 간격 */
-}
-.motion .motion_in > ul{  /* >는 직계자식 */
+
+.video .video_box {
+    max-width: 1280px;
+    width: calc(100% - 20px);
+    margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    border-top: 1px solid #333;
-    margin-top: 20px;
-    padding-top: 10px;
+    align-items: center;
 }
-.motion .info {
-    /* 가로정렬 (flex)
-       양끝 붙여서 정렬 */
-       display: flex;
-       justify-content: space-between;
-       margin-top: 30px;
-       align-items:flex-end; /* 수직정렬에서 아래쪽으로 정렬 */
- }
-.motion .info video {
-    /* 비디오 가로값 60%
-       세로값 100%
-       object-fit: cover */
-       width: 60%;
-       height: 100%;
-       object-fit: cover;
-}
-.motion .info .text{
-    /* 텍스트 가로값 35% */
+.video h3{
+    color:#b20a2c;
+    text-shadow: 1px 1px 3px rgba(134, 16, 40, 0.247);
+    font-family: 'Raleway', sans-serif;
+} 
+.video .video_box .info {
     width: 35%;
-    word-break: break-all; /* 글자 줄바꿈 */
 }
-.motion .info .text dl{
-    display: flex;
-    margin-top: 7px;
-}
-.motion .info .text dl dt {
-    width: 30%;
-    font-weight: bold;
-}
-.motion .info .text dl dd {
-    width: 65%;
-}
-
-.motion .info .text p {
-    margin-bottom: 30px;
-}
-
-/* 썸네일*/
-.motion .thum {
-    margin-top: 30px;
-}
-.motion .thum ul {
+.video .video_box .images {
+    width: 60%; 
     display: flex; 
     justify-content: space-between;
+    flex-wrap: wrap;
 }
-.motion .thum ul li {
-    width: 19%; /* 5개라 20%인데 간격을 위해 19 */
+.video .video_box .images figure {
+    width: 49%;
+    max-height: 240px;
+    height: 18vw;
 }
-.motion .thum ul li figure {
-    width:100%;
-    height:13vw;
-} /* 100vh => 브라우저 높이 전체
-     100vw => 브라우저 넓이 전체 */
-.motion .thum ul li figure img {
-    width:100%;
-    height:100%;
-    object-fit: cover;
-    border: 2px solid #333;
-    box-sizing: border-box;
-    margin-bottom: 5px;
-}
-
- /* 공통된 스타일 */
-h3 {
-    font-size: 40px;
+.video .video_box .images figure:first-child {
     margin-bottom: 20px;
 }
-h4 {
-    font-size: 30px;
+.video .video_box .images figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.video .video_box .video_tag {
+    width: 100%;
+    height: 600px;
+    margin-top: 30px;
+    box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.3);
 }
 
+
+
+/* BEST MEDIA 안에 있는 비디오 */
+.video .video_box .video_tag {
+    width: 100%;
+    height: auto;  
+}
+.video .video_box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.3);
+    
+} 
+
+/* BEST MEDIA 안에 있는 유튜브 */
+.video .video_box .video_tag > div {
+    width: 100%;
+    position: relative;
+    padding-top: 56.25%;
+}
+.video .video_box > div iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 12px 12px 40px rgba(0, 0, 0, 0.3);
+
+}
+ 
+.video .info .cate {
+    font-weight: bold;
+    font-size: 18px;
+}
+.video .info .text {
+    line-height: 1.4;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.video .info h4 {
+    padding-bottom: 10px;
+}
+.video .info dl {
+    display: flex;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    
+}
+.video .info dl dt {
+    width: 120px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.video .info dl dd {
+    width: 80%; 
+    font-size: 18px;
+}
 .btn {
     display: flex;
-    position: relative;
-    margin-top: 50px;
-}
-.btn li a {
-    width: 140px;
-    height: 48px;
-    line-height: 48px;
-    border: 1px solid #333;
-    margin-right: 10px;
-    text-align: center;
-    box-sizing: border-box; /* width값 height값 생각해서 테두리가 생긴다.
-                               안하면 색이 찰때 옆에 흰 줄같은거 있을 수도 */
+    margin-top: 30px;
 }
 .btn li {
-    width: 0;
-    transition: 0.8s; /* li에도 트렌지션을 넣으면 마우스를 뗐을때도 자연스럽게 색이 사라진다. */
-}
-.btn li:nth-child(2) {
-    position: absolute;
-    left: 150px;  /*.btn position: relative 를 기준으로 왼쪽으로 150px 이동한다.*/
-}
-.btn li:nth-child(3) {
-    position: absolute;
-    left: 300px;  /*.btn position: relative 를 기준으로 왼쪽으로 150px 이동한다.*/
-}
-.btn li:first-child:hover {
-    background-color: #583034;
-    width: 140px;
-    transition: 0.8s; /* <-시간 설정을 해줄 수 있다. 색깔이 차오르는 효과가 된다. */
+    margin-right: 10px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #333;
+    box-sizing: border-box;
 }
 
-.btn li:nth-child(2):hover {
-    background-color: #583034; /* 어도비컬러에서 색 찾기 */
-    width: 140px;
+.btn li a {
+    padding: 0 23px;
+}
+.btn li:first-child :hover {
+    background-color: #b20a2c;    
     transition: 0.8s;
 }
-.btn li:nth-child(3):hover {
-    background-color: #583034; /* 어도비컬러에서 색 찾기 */
-    width: 140px;
+.btn li:nth-child(2) :hover {
+    background-color: #b20a2c;
     transition: 0.8s;
 }
-
-.btn li:hover a{
+.btn li:first-child a {
+    color: #333;
+}
+.btn li:first-child a:hover {
+    color: #fff;
+}
+.btn li:nth-child(2) a:hover {
     color: #fff;
 }
 
-/* 모션슬라이드 스와이퍼 스타일 */
-.swiper {
-    width: 100%;
-    height: 100%;
-  }
 
-  .swiper-slide {
+
+.v2 {
+    background-color: rgba(241, 241, 241, 0.603);
+}
+
+
+/* 유튜브 리스트 */
+/* 유튜브 리스트 슬라이드 swiper 
+https://codesandbox.io/s/jke0r?file=/index.html:686-1415
+*/
+.youtube_wrap > div {
+    max-width: 1280px;
+    width: calc(100% - 30px);
+    height: 100%;
+    margin: 0 auto;
+    /* padding: 150px 0; */
+}
+.swiper-wrapper {
+    display: flex;
+}
+.swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: #fff; 
 
     /* Center slide text vertically */
     /* display: -webkit-box;
@@ -267,290 +326,272 @@ h4 {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  }
+}
 
-  .swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+}
 
-  /* 모션슬라이드 */
-  .motion_slide {
-      margin: 150px 0;
-  }
-  .motion_slide .swiper-slide figure {
-      height: 560px;
-      background-color: #c46461 ;
-  }
-  .motion_slide .swiper-slide .list {
-      max-width: 1440px;
-      width: calc(100% - 30px);
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: -400px;
-  }
-  .motion_slide .swiper-slide video {
-      width: 60%;
-      height: 100%;
-      object-fit: cover;
-      box-shadow: 2px 3px 20px rgba(0, 0, 0, .3);
-  }
-  .motion_slide .swiper-slide .info {
-      width: 35%;
-      text-align: left;
-      word-break: break-all;
-      margin-top: 0%;
-  }
+/* 추가 */
+.swiper-slide { 
+    border: 1px solid #ddd;
+    /* padding: 100px 0; */
+    box-sizing: border-box;
+}
+.swiper {
+    padding-bottom: 0px;
+} 
+ 
+/* 유튜브 리스트 작성 */
+.youtube_list {
+    padding: 150px 0;
+}
+.youtube_list h3 {
+    text-align: center;
+    width: auto;
+    color: #b20a2c;
+    text-shadow: 1px 1px 3px rgba(134, 16, 40, 0.247);
+    font-family: 'Raleway', sans-serif;
+}
+.youtube_list .swiper-slide figure {
+    width: 100%; 
+}
+.youtube_list .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.youtube_list .swiper-slide figure div {
+    width: 100%; 
+    padding-bottom: 56.25%;
+    /* 16:9 비율 만들어줌 */
+    position: relative;
+}
+.youtube_list .swiper-slide figure iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.youtube_list .swiper-slide > div {
+    background-color: #fff;
+    padding: 25px;
+    text-align: left;
+    line-height: 1.5;
+}
+.youtube_list .swiper-slide div h4 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.youtube_list .swiper-slide div dl {
+    display: flex;
+    margin-top: 10px;
+}
+.youtube_list .swiper-slide div dt {
+    width: 120px;
+    font-weight: bold;
+}
+.youtube_list .swiper-slide div dd {
+    width: 80%;
+}
+.youtube_list .swiper-slide div dd a {
+    font-weight: bold;
+}
+.youtube_list .swiper-slide dl dd:hover a {
+    text-decoration: underline;
+    color:#b20a2c;
+}
 
-  .motion_slide .swiper-slide .info dl {
-      display: flex;
-      margin-top: 5px;
-  }
-  .motion_slide .swiper-slide .info dl dt {
-      width: 30%;
-      font-weight: bold;
-  }
-  .motion_slide .swiper-slide .info dl dd {
-      width: 70%;
-  }
-  .motion_slide .swiper-slide .info p {
-      margin: 10px 0 30px; 
-  }
+.youtube_list .motion_cate ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.youtube_list .motion_cate li {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 30px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: 5px;
+    /* display: inline-block; */
+}
+.youtube_list .motion_cate li.on {
+    background-color: #b20a2c;
+    border: 0;
+    box-shadow: 2px 3px 20px rgba(0, 0, 0, .3);
+}
+.youtube_list .motion_cate li.on a {
+    color: #fff;
+}
+ 
 
-  /* 슬라이드 배경컬러 변경 */
-  .motion_slide .swiper-slide figure.fl {
-      background-color: #D3D5D8;
-    }
-  .motion_slide .swiper-slide figure.f2 {
-        background-color: #a54f4c;
-    }
-  .motion_slide .swiper-slide figure.f3 {
-        background-color: #854240;
-    }
+.youtube_wrap .motion_list { 
+    display: none;
+}
+.youtube_wrap .motion_list.on {
+    display: flex; 
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.youtube_wrap .motion_list > div {
+    width: 49%;
+     
+    margin: 0 0.3%;
+    margin-bottom: 20px;
+} 
 
-    /* 영상리스트 youtube list */
-    .youtube_list h3 {
-        text-align: center;
-    }
-    .youtube_list .motion_cate ul {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 30px;
-    }
-    .youtube_list .motion_cate ul li {
-        height: 45px;
-        line-height: 45px;
-        padding: 0 30px;
-        border: 1px solid #CCC;
-        margin: 5px;
-    }
-    .youtube_list .motion_cate ul li.on {
-        background-color: #333;
-        box-shadow: 2px 3px 20px rgba(0, 0, 0, .3);
-        border: 1px solid #333;
-    }
-    .youtube_list .motion_cate ul li.on a {
-        color: #fff;
-    }
-    .mySwiperyoutube .swiper-wrapper {display:none;}
-    .mySwiperyoutube .swiper-wrapper.on {display:flex;}
+ 
+/*************************************** 그래픽 디자인 2D VISUAL DESIGN */
+.g_design {
+    max-width: 1280px;
+    width: calc(100% - 20px);
+    margin: 150px auto;
+    margin-top: 0;
 
+}
+.g_design h3 {
+    width: auto;
+    text-align: center;
+    color: #b20a2c;
+    text-shadow: 1px 1px 3px rgba(134, 16, 40, 0.247);
+    font-family: 'Raleway', sans-serif;
+}
+.imglist {
+    display: flex;
+    justify-content: space-between;
+}
 
-    /* 유튜브 컨텐츠 */
-    .youtube_list .youtube_wrap .youtube_cont {
-        max-width: 1280px;
-        width: calc(100% - 30px);
-        margin: 0 auto;
-    }
-    .youtube_list .youtube_wrap .swiper-slide {
-        width: 49%;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        margin: 0 0.5% ;
-        margin-bottom: 20px;
-    }
-    .youtube_list .swiper-slide .youtube {
-        position:  relative;
-        padding-bottom: 56.25%;
-        width: 100%;
-    }
-    .youtube_list .swiper-slide .youtube iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }        
-    .youtube_list .swiper-slide .info {
-        padding: 25px;
-        text-align: left;
-    }
-    .youtube_list .swiper-slide .info p {
-        font-size: 14px;
-    }
-    .youtube_list .swiper-slide .info h4 {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-    .youtube_list .swiper-slide .info dl {
-        display: flex;
-        margin-top: 10px;
-    }
-    .youtube_list .swiper-slide .info dl dt {
-        width: 30%;
-        font-weight: bold;
-    }
-    .youtube_list .swiper-slide .info dl dd {
-        width: 70%;
-        word-break: break-all;
-    }
+.imglist div {
+    width: 24%;
+    height: 20vw;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+}
+.imglist div a {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+     
+}
 
+.imglist div a::before {
+    content:'';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 2;
 
-    /******* 2D 디자인 *******/
-    .g_design {
-        max-width: 1280px;
-        width: calc(100% - 30px);
-        margin: 150px auto;
-    }
-    .g_design em {
-        text-align: right;
-        display: block;
-        font-size: 13px;
-    }
-    .g_design h3 {
-        text-align: center ;
-    }
-    .g_design .img_list {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .g_design .img_list div {
-     width: 24%;
-     border: 1px solid #ccc;
-     box-sizing: border-box; 
-     margin: 20px 0;
-    }
-    .g_design .img_list div img {
-        width: 100%;
-    }
-    .g_design .img_list ul {
-        padding: 20px;
-    }
-    .g_design .img_list ul li:first-child {
-        font-size:14px;
-        color: #555;
-        margin-bottom: 5px;
-    }
-    .g_design .img_list ul li:nth-child(2) {
-        font-size: 18px;
-        font-weight: bold;
-    }
+    display: none;
+}
 
-/* footer */
+.imglist div ul {
+    /* padding: 15px; */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    z-index: 9;
+
+    display: none;
+    
+}
+.imglist div ul li:first-child {
+    font-size: 14px;
+    margin-bottom: 10px;
+} 
+.imglist div ul li:last-child {
+    font-weight: bold;
+}
+
+.imglist div a figure {
+    width: 100%;
+    height: 100%;
+}
+.imglist div a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.8s;
+
+}
+
+/* **************************************************
+*****************이미지에 마우스 올렷을 때 효과 
+*******************************************************/
+
+.imglist div a:hover::before {
+    display: block;
+}
+.imglist div a:hover ul {
+    display: block;
+}
+.imglist div a:hover img {
+    transform: scale(1.2);
+}
+
+ 
+/* 푸터 footer*/
 footer {
-    background-color: #333; 
+    background-color: #333;
     color: #fff;
     padding: 80px 0;
-    text-align: center;
+    text-align: center; 
 }
 footer h3 {
-    letter-spacing: 3px; /* 글자 사이 간격 늘어난다 */
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+footer a {
+    color: #fff; 
 }
 footer ul {
-    margin: 20px 0;   
+    margin: 20px 0;
 }
-footer ul li {
-    width: 250px;
+footer ul li { 
+    width: 220px;
+    margin: 10px auto;
     height: 50px;
     line-height: 50px;
-    border: 1px solid #fff;
+    /* display: inline-block; */
     border-radius: 50px;
-    margin: 10px auto;
+    border: 1px solid #fff;
 }
+footer ul li:nth-child(1) {
+    background-color: #b20a2c;
+}
+footer ul li:nth-child(1) a {color: #fff}
 footer p {
+    width: 95%;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, .5);  
     font-size: 14px;
-    color: rgba(255, 255, 255, .5);
-}
-footer ul li a {
-    color: #fff;
-}
-/* 반응형 제작 ************************************
-**************************************************/
-
-@media screen and (max-width: 1024px) {
-    
-    /* 모션그래픽디자인 슬라이드 */
-    .motion_slide .swiper-slide figure {
-        height: 35vw;
-    }
-    .motion_slide .swiper-slide .list {
-        margin-top: -24%;
-    }
-    .motion_slide .swiper-slide .list .info {
-        margin-top: 1%;
-    }
-
-    /* 버튼들 */
-    .btn {margin-top: 30px;}
 }
 
 
-@media screen and (max-width: 960px) {
-    /* 모션그래픽디자인 상단 */
-    .motion .info {flex-wrap: wrap;}
-    .motion .info video {
-        width: 100%;
-    }
-    .motion .info .text {
-        width: 95%;
-        margin: 20px auto;
-    }
-    .motion .flex_bottom ul li {width: 24%;}
-    .motion .flex_bottom ul li:last-child {display: none;}
-    .motion .flex_bottom ul li figure {height: 180px;}
-
-    .motion .motion_in:nth-of-type(2) .info video { order: -1;}
-
-    /* 모션그래픽디자인 슬라이드 */
-    .motion_slide .swiper-slide .list video {
-        width: 100%;
-    }
-    .motion_slide .swiper-slide .list .info {
-        width: 95%;
-        margin: 20px auto;
-    }
-    .motion_slide .swiper-slide .list {
-        width: 90%; 
-    }
-    .motion_slide {margin: 70px auto;}
-
-
-    /* 유튜브 리스트 */
-    .youtube_list {margin: 0 auto;}
-
-    /* 그래픽디자인 */
-    .g_design {margin-top: 70px;} 
-}
-
-
-@media screen and (max-width: 640px) {
-    :root  {--swiper-navigation-size: 24px;}
-
-    h3 {font-size: 30px;}
-    h4 {font-size: 24px;}
-    .tit {display: none;}
-
-    /* 메인비주얼 */
-    .main_visual div {
-        width: 70%;
-        height: 60vh;
-    }
+/* 반응형제작 *********************************
+***********************************************/
+@media screen and (max-width: 767px) {
+    h3 {text-align: left;   font-size: 35px;}
+    .main_visual {height: 75vh;}
+    .main_visual .mv_t h1 {font-size: 50px; line-height: 1.2;}
+    .main_visual .mv_t p {font-size: 30px; margin-top: 10px;}
 
     /* 자기소개서 */
     .profile {flex-wrap: wrap;}
@@ -561,68 +602,76 @@ footer ul li a {
         height: 100%;
         object-fit: cover;
     }
-    .profile .about {width: 100%;}
+    .profile .about {width: 100%; padding: 20px;}
 
-    /* 모션그래픽디자인 */
-    .motion {margin: 80px auto;} 
-    .motion .motion_in {margin-bottom: 80px;}
-    .motion .motion_in > ul {flex-wrap: wrap;}
 
-    .motion .info .info h4 {margin-bottom: 10px;}
-    .motion .info .info p {margin-bottom: 30px;}
-
-    .motion .thum {display: none;}
-    .motion .thum ul li:nth-child(4) {display: none;}
-    .motion .thum ul li {width: 32%;}
-    .motion .thum ul li figure {height: 120px;}
+    /* 베스트 미디어 */
+    .video {padding: 80px 0;}
+    .video .video_box .info {width: 100%; margin-bottom: 20px;}
+    .video .video_box .images {width: 100%;}
     
-    /* 모션그래픽디자인 슬라이드 */
-    .motion_slide {margin: 70px auto;}
-    .motion_slide .swiper-slide .info h4 {font-size: 24px; margin-bottom: 10px;}
- 
+    .video .video_box .images figure {height: 25vw;}
+    .video .info .text {margin-bottom: 20px;}
+    .v2 .video_box .info {order: -1;}
+    
 
-    /* 유튜브리스트 */ 
-    .youtube_list {padding:0;}
-    .youtube_list .swiper-slide .info {padding: 15px;}
-    .youtube_list .swiper-slide .info dl {font-size: 16px;}
+    /* 유튜브 리스트 */
+    .youtube_list {padding-top: 80px; padding-bottom: 0;}
+    .youtube_list .swiper-slide > div {padding: 15px;}
+    .youtube_list .swiper-slide div h4 {margin-bottom: 15px;}
+    .youtube_list .swiper-slide div dl {flex-wrap: wrap;}
+    .youtube_list .swiper-slide div dt {width: 100%;}
+    .youtube_list .swiper-slide div dd {width: 100%;}
+
     /* 리스트 슬라이드 */
-    .mySwiperyoutube .swiper-wrapper.on {
+    .youtube_wrap .motion_list.on {
         flex-wrap: nowrap;
     }
-    .mySwiperyoutube .swiper-wrapper.on .swiper-slide {
-        width: 420px;
+    .youtube_wrap .motion_list.on .swiper-slide {
+        width: 320px;
     } 
-    .mySwiperyoutube .swiper-wrapper > div {margin: 0; }
-    
 
-    /* 그래픽디자인 */
-    .g_design {margin: 70px auto;}
-    .g_design .img_list {flex-wrap: wrap;}
-    .g_design .img_list div {width: 49%; margin: 10px 0;}
+    /* 그래픽 디자인 */
+    .g_design {margin: 80px auto;}
+    .imglist {flex-wrap: wrap;}
+    .imglist div {
+        width: 49%; 
+        height: auto; 
+        margin-bottom: 20px;
+    }
+    .imglist div a figure {height: 38vw;}
+    .imglist div a:hover img {
+        transform: scale(1.0);
+    }
+    .imglist div a:hover::before {
+        display: none;
+    }
+    .imglist div a ul  {
+        display: block;
+        position: static;
+        transform: translateY(0);
+        color: #333;
+        padding: 15px;
+    }
+
+}
+
+@media screen and (max-width: 412px) {
+    h3 {font-size: 28px;}
+    h4 {font-size: 22px;}
     
+    .video {padding: 50px 0;}
+    .info .produce {font-size: 14px;}
+    .video .info .text {margin-bottom: 20px;}
+    .video .video_box .video_tag {height: 320px;}
+
+    .youtube_list {padding-top: 50px;}
+    .youtube_list .swiper-slide div dt {width: 30%;}
+    .youtube_list .swiper-slide div dd {width: 65%;}
+
+    .g_design {margin: 50px auto;}
+    .imglist div ul {padding: 10px;}
 }
 
 
-@media screen and (max-width: 400px) {
-    
-    .motion .info .text dl dt {width: 30%;}
-    .motion .info .text dl dd {width: 65%;}
-    .motion .thum {margin-top: 10px;}
 
- 
-    .motion_slide .list .info dl dt {width: 30%;}
-    .motion_slide .list .info dl dd {width: 65%;}
-
-
-    /* 유튜브리스트 */
-    .youtube_list h3 {font-size: 25px;}
-    
-    .youtube_list .swiper-slide .info dl {flex-wrap: wrap;}
-    .youtube_list .swiper-slide .info dl dt {width: 100%;}
-    .youtube_list .swiper-slide .info dl dd {width: 100%;}
-
-    /* 그래픽디자인 */ 
-    .img_list a ul {padding: 10px;}
-    .img_list a ul li:nth-child(2) {font-size: 17px;}
-    
-}
