@@ -397,9 +397,10 @@ https://codesandbox.io/s/jke0r?file=/index.html:686-1415
 }
 .youtube_list .swiper-slide div dd {
     width: 80%;
+    word-break: break-all;
 }
 .youtube_list .swiper-slide div dd a {
-    font-weight: bold;
+    font-weight: ;
 }
 .youtube_list .swiper-slide dl dd:hover a {
     text-decoration: underline;
