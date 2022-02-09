@@ -685,7 +685,7 @@ footer p {
     .video {padding: 50px 0;}
     .info .produce {font-size: 14px;}
     .video .info .text {margin-bottom: 20px;}
-    .video .video_box .video_tag {height: 320px;}
+    .video .video_box .video_tag {height: 197px;}  /* 320 */
 
     .youtube_list {padding-top: 50px;}
     .youtube_list .swiper-slide div dt {width: 30%;}
