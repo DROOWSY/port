@@ -140,7 +140,7 @@ header div ul li img {
     border-radius: 50px;
     padding: 50px;
     box-sizing: border-box;
-    background: url('images/bg2.bmp') center center / cover no-repeat;
+    background: url('background/bg2.bmp') center center / cover no-repeat;
     background-attachment: fixed; /* 화면 스크롤 움직여도 사진은 고정 */
 }
 .profile .about dl { 
@@ -309,7 +309,7 @@ header div ul li img {
 
 .v2 {
     /* background-color: rgba(241, 241, 241, 0.603); */
-    background: url('images/bg2.bmp') center center / cover no-repeat;
+    background: url('background/bg2.bmp') center center / cover no-repeat;
     background-attachment: fixed; /* 화면 스크롤 움직여도 사진은 고정 */
 }
 
