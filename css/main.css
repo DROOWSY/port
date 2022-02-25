@@ -157,6 +157,13 @@ header div ul li img {
 .profile .about dl dd {
     margin-bottom: 15px;
 }
+.profile .about .icons figure {
+    width: 50px;
+    height: 50px;
+    float: left; 
+    margin-right: 10px;}
+
+
 
 
 /***************************************** best video */
@@ -208,6 +215,12 @@ header div ul li img {
     margin-top: 30px;
     box-shadow: 10px 10px 20px rgba(38, 21, 100, 0.3);
 }
+.video .video_box .info .icon figure img {
+    width: 40px;
+    height: 40px;
+    float: left; 
+    margin-top: -7px;
+    margin-right: 10px;}
 
 
 
